@@ -11,7 +11,7 @@
 <section style="background-color: {selection?.color}">
   {#if selection?.label}
     <h1 style="color: {selection?.text ? selection?.text : '#fff'}">
-      {selection.label}!
+      {selection.label}
     </h1>
   {/if}
 </section>
