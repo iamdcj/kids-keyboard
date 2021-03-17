@@ -1,20 +1,19 @@
 <script lang="ts">
   import Selection from "./components/Selection.svelte";
   import FallBackUI from "./components/FallBackUI.svelte";
-  import { alphabet } from "./constants";
+  import { alphabet, acceptedKeys } from "./constants";
 
   let selection: string = "";
 
   function handleKeyPress(e) {
-    if (selection === e.key) {
+    if (selection === e.key || !acceptedKeys.includes(e.key)) {
       return;
     }
 
     selection = e.key;
   }
-
-  
 </script>
+
 <svelte:window on:keydown={handleKeyPress} />
 
 <main>
