@@ -4,6 +4,10 @@
   let selection: string = "";
 
   function handleKeyPress(e) {
+    if(selection === e.key) {
+      return;
+    }
+    
     selection = e.key;
   }
 </script>
@@ -15,7 +19,13 @@
     : '#fff'}"
 >
   {#if alphabet[selection]?.label}
-    <h1>{alphabet[selection].label}!</h1>
+    <h1
+      style="color: {alphabet[selection]?.text
+        ? alphabet[selection]?.text
+        : '#fff'}"
+    >
+      {alphabet[selection].label}!
+    </h1>
   {/if}
 </main>
 
@@ -26,18 +36,13 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
     color: #fff;
     transition: background-color ease 200ms;
   }
 
   h1 {
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
+    font-size: 8em;
+    font-weight: 600;
   }
 
   @media (min-width: 640px) {
